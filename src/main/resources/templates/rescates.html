@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades de Rescate</title>
+</head>
+<body>
+
+<h1>Actividades de Rescate</h1>
+
+<h2>Datos de la brigada</h2>
+<p>Nombre: <span th:text="${brigada.nombre}"></span></p>
+<p>Sede: <span th:text="${brigada.sede}"></span></p>
+<p>Tipo de rescate: <span th:text="${brigada.tipoRescate}"></span></p>
+<p>Categoría: <span th:text="${brigada.categoria}"></span></p>
+
+<h2>Punto 2: Stack y ListIterator</h2>
+<div th:each="rescate : ${pilaRescates}">
+    <p>
+        Nombre: <span th:text="${rescate.nombre}"></span> |
+        Ubicación: <span th:text="${rescate.ubicacion}"></span> |
+        Responsable: <span th:text="${rescate.responsable}"></span> |
+        Tipo: <span th:text="${rescate.tipoRescate}"></span> |
+        Categoría: <span th:text="${rescate.categoria}"></span> |
+        Conteo: <span th:text="${rescate.conteo}"></span>
+    </p>
+</div>
+
+<h2>Punto 2: Deque e Iterator</h2>
+<div th:each="rescate : ${recorridoDeque}">
+    <p>
+        Nombre: <span th:text="${rescate.nombre}"></span> |
+        Ubicación: <span th:text="${rescate.ubicacion}"></span> |
+        Responsable: <span th:text="${rescate.responsable}"></span> |
+        Tipo: <span th:text="${rescate.tipoRescate}"></span> |
+        Categoría: <span th:text="${rescate.categoria}"></span> |
+        Conteo: <span th:text="${rescate.conteo}"></span>
+    </p>
+</div>
+
+<h2>Punto 3: Filtro funcional por tipo de rescate</h2>
+<p>Tipo buscado: ACCIDENTE</p>
+<div th:each="rescate : ${filtrados}">
+    <p>
+        Nombre: <span th:text="${rescate.nombre}"></span> |
+        Ubicación: <span th:text="${rescate.ubicacion}"></span> |
+        Responsable: <span th:text="${rescate.responsable}"></span> |
+        Tipo: <span th:text="${rescate.tipoRescate}"></span> |
+        Categoría: <span th:text="${rescate.categoria}"></span> |
+        Conteo: <span th:text="${rescate.conteo}"></span>
+    </p>
+</div>
+
+<h2>Punto 4: Function con apply()</h2>
+<div th:each="total, estado : ${totalesApply}">
+    <p>
+        Rescate <span th:text="${estado.index + 1}"></span>:
+        Total de enteros =
+        <strong th:text="${total}"></strong>
+    </p>
+</div>
+
+<h2>Punto 5: verTotales</h2>
+<div th:each="total, estado : ${totales}">
+    <p>
+        Rescate <span th:text="${estado.index + 1}"></span>:
+        Total de enteros =
+        <strong th:text="${total}"></strong>
+    </p>
+</div>
+
+</body>
+</html>
